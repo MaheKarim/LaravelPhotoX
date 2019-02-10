@@ -121,9 +121,54 @@
               </form> <br>
               <div class="form-group">
                     <a href="{{ route('weddingpackgetodes') }}">
-                    <input type="submit" class="btn btn-success" value="Add Image To Album">
+                    <input type="submit" class="btn btn-success" value="Add Package To To Description">
                            </a>
               </div>
+<hr>
+    {{-- Table Start Here --}}
+
+    @if ( session('deleteweddingpackage') )
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ session('deleteweddingpackage') }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    @endif
+
+    <table class="table table-borderd">
+            <thead>
+              <tr>
+                  <th> package Name </th>
+                <th>package price</th>
+                <th>Action </th>
+              </tr>
+              @foreach ($weddingpackages as $weddingpackage)
+              <tr>
+                    <td> {{ $weddingpackage->wedding_package_name }} </td>
+                <td>  {{ $weddingpackage->wedding_package_price }} </td>
+
+                <td>
+
+                        <a href="{{ route('deleteweddingPackage', $weddingpackage->id) }}" onclick="event.preventDefault();
+                                document.getElementById('destroy'+{{ $weddingpackage->id }}).submit();" class="btn btn-danger btn-xs">
+                            <span> <i class="fas fa-trash"></i> </span>
+                        </a>
+                        <form id="destroy{{ $weddingpackage->id }}" action="{{ route('deleteweddingPackage', $weddingpackage->id) }}" method="post" style="display: none;">
+                            @csrf
+                            @method('DELETE')
+                        </form>
+
+                </td>
+            </tr>
+            @endforeach
+            </thead>
+        </table>
+
+
+
+
+
     </div>
 
 @endsection

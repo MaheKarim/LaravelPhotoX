@@ -15,16 +15,18 @@ class WeddingAlbumController extends Controller
     {
         $logochanges = \App\LogoChange::all();
         $albums = Album::all();
+        $weddingpackages = WeddingPackage::all();
 
-        return view('/wedding-album', compact('logochanges', 'albums'));
+        return view('/wedding-album', compact('logochanges', 'albums', 'weddingpackages'));
     }
 
     public function indexadmin()
     {
         $logochanges = \App\LogoChange::all();
         $albums = Album::all();
+        $weddingpackages = WeddingPackage::all();
 
-        return view('/admin.wedding.wedding_view', compact('logochanges', 'albums'));
+        return view('/admin.wedding.wedding_view', compact('logochanges', 'albums', 'weddingpackages'));
     }
 
     //make album form submission
@@ -136,5 +138,12 @@ class WeddingAlbumController extends Controller
         $weddingpackagegallries->save();
 
         return redirect()->route('weddingpackgetodes')->with('packagetodata', 'Package Description Add Successfully!');
+    }
+
+    public function deleteweddingPackage($id)
+    {
+        $weddingpackages = WeddingPackage::findOrfail($id)->delete();
+
+        return redirect()->route('weedingalbumadmin')->with('deleteweddingpackage', 'Delete Package Successfully!');
     }
 }

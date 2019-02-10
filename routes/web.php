@@ -46,6 +46,7 @@ Route::delete('/deleteWedding/{id}', 'WeddingAlbumController@deleteWedding')->na
 Route::post('wedding-package/form', 'WeddingAlbumController@weddingpackge')->name('weddingpackge');
 Route::get('wedding/add/package/des', 'WeddingAlbumController@weddingpackgetodes')->name('weddingpackgetodes');
 Route::post('wedding/data/to/package', 'WeddingAlbumController@WedingDataToPackage')->name('WedingDataToPackage');
+Route::delete('deleteweddingPackage/{id}', 'WeddingAlbumController@deleteWeddingPackage')->name('deleteweddingPackage');
 /*
 |--------------------------------------------------------------------------
 |                       Engagemnet Album Controller Start
