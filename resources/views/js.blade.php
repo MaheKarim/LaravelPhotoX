@@ -1,0 +1,9 @@
+<script src="{{ asset('/') }}front-end/js/jquery-1.12.4.min.js"></script>
+    <script src="{{ asset('/') }}front-end/js/bootstrap.min.js"></script>
+    <script src="{{ asset('/') }}front-end/js/slick.min.js"></script>
+    <script src="{{ asset('/') }}front-end/js/jquery.mousewheel.min.js"></script>
+    <script src="{{ asset('/') }}front-end/js/lightgallery-all.min.js"></script>
+    <script src="{{ asset('/') }}front-end/js/lg-thumbnail.min.js"></script>
+    <script src="{{ asset('/') }}front-end/js/jquery.ripples-min.js"></script>
+    <script src="{{ asset('/') }}front-end/js/lg-video.min.js"></script>
+    <script src="{{ asset('/') }}front-end/js/main.js"></script>

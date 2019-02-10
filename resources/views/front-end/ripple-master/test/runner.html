@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mocha</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="utils/mocha.css" />
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script src="utils/mocha.js"></script>
+    <script>mocha.setup('bdd')</script>
+    <script src="../build/build.js"></script>
+    <script src="specs/view.js"></script>
+    <script src="specs/model.js"></script>
+    <script src="specs/watching.js"></script>
+    <script src="specs/composing.js"></script>
+    <script src="specs/interpolation.js"></script>
+    <script src="specs/text-interpolation.js"></script>
+    <script src="specs/attribute-interpolation.js"></script>
+    <script src="specs/lifecycle.js"></script>
+    <script src="specs/mounting.js"></script>
+    <script src="specs/owners.js"></script>
+    <script src="specs/destroy.js"></script>
+    <script src="specs/directives.js"></script>
+    <script>
+      (window.mochaPhantomJS || mocha).run();
+    </script>
+  </body>
+</html>

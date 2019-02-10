@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="Zendamin">
+    <serverData>
+      <paths name="Zendamin">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="LaraPharmaNew" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
