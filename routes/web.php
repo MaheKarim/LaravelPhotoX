@@ -93,6 +93,8 @@ Route::post('/birthday/album/to/gallery', 'BirthdayController@bdaygalleryoption'
 Route::get('/birthday/album/to/singleImage/{id}', 'BirthdayController@birthdaySingleImage')->name('birthdaySingleImage');
 Route::delete('/deleteBirthday/{id}', 'BirthdayController@deleteBirthday')->name('deleteBirthday');
 
+Route::post('/birthday/package/form', 'BirthdayController@birthdaypackage')->name('birthdaypackage');
+
 /*
 |--------------------------------------------------------------------------
 |                       Party Album Controller Start

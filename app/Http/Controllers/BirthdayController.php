@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\LogoChange;
 use App\Birthday;
 use App\Birthdaygallery;
+use App\BirthdayPackage;
 
 class BirthdayController extends Controller
 {
@@ -97,5 +98,16 @@ class BirthdayController extends Controller
         }
 
         return back()->with('deletenotification', 'Album delte Successfully!');
+    }
+
+    public function birthdaypackage(Request $request)
+    {
+        $birthdaypackages = new BirthdayPackage();
+        $birthdaypackages->birthday_package_name = $request->birthday_package_name;
+        $birthdaypackages->birthday_package_price = $request->birthday_package_price;
+
+        $birthdaypackages->save();
+
+        return redirect()->route('birthdayalbummake')->with('birthdaypackageaddnotification', 'Birthday Package Create Successfully!');
     }
 }
