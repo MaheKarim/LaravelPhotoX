@@ -113,8 +113,8 @@ class PortraitController extends Controller
         $portraitpackages->portrait_package_price = $request->portrait_package_price;
 
         $portraitpackages->save();
-        dd($request->all());
+        // dd($request->all());
 
-        return redirect()->route('portrait-section')->withportraitPackCreate('Package name Create Successfully!');
+        return redirect()->route('portraitsection')->withportraitPackCreate('Package name Create Successfully!');
     }
 }
