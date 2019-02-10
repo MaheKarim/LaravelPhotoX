@@ -385,6 +385,7 @@ class ComposerStaticInit6af79ae29106b3b0c5b30eec438083e9
         'App\\Party' => __DIR__ . '/../..' . '/app/Party.php',
         'App\\Partygallery' => __DIR__ . '/../..' . '/app/Partygallery.php',
         'App\\Portrait' => __DIR__ . '/../..' . '/app/Portrait.php',
+        'App\\PortraitPackage' => __DIR__ . '/../..' . '/app/PortraitPackage.php',
         'App\\Portraitgallery' => __DIR__ . '/../..' . '/app/Portraitgallery.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',

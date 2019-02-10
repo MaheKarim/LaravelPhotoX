@@ -51,6 +51,7 @@ return array(
     'App\\Party' => $baseDir . '/app/Party.php',
     'App\\Partygallery' => $baseDir . '/app/Partygallery.php',
     'App\\Portrait' => $baseDir . '/app/Portrait.php',
+    'App\\PortraitPackage' => $baseDir . '/app/PortraitPackage.php',
     'App\\Portraitgallery' => $baseDir . '/app/Portraitgallery.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',

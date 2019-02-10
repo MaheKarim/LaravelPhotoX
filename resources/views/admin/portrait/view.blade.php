@@ -98,6 +98,46 @@
                 </thead>
             </table>
         </div>
+        </div>
+<br>        <hr>
+        <div class="alert alert-primary text-center" role="alert">
+                This is your Portrait Package List Here!
+              </div>
+{{-- Alert End Here --}}
+
+@if ( session('portraitPackCreate') )
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+{{ session('portraitPackCreate') }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+@endif
+{{-- Package Create Section --}}
+<div class="col-md-8">
+        <form action="{{ route('portraitpackge') }}" method="POST">
+                @csrf
+                <div class="form-group">
+                     <label for="">Package Name</label>
+                     <input type="text" name="portrait_package_name" placeholder="Write down your package name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Package Price</label>
+                        <input type="text" name="portrait_package_price" class="form-control" placeholder="Wedding Package Price">
+                    </div>
+                    <div class="col-md-4 form-group">
+                      <input type="submit" class="btn btn-success" value="Make An Album">
+                      {{-- form submit --}}
+
+                    </div>  <div class="cold-md-4 form-group">
+                            <a href="">
+                            <input type="submit" class="btn btn-success" value="Add Package To To Description">
+                                   </a>
+                      </div>
+                  </form>
+
+</div>
+
     </div>
 @endsection
 

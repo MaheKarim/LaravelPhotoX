@@ -76,7 +76,8 @@ Route::delete('/deletePortrait/{id}', 'PortraitController@deletePortrait')->name
 Route::get('/image/to/album', 'PortraitController@imagetoalbum')->name('imagetoalbum');
 Route::post('portrait/album/to/gallery', 'PortraitController@portraitgalleryoption')->name('portraitgalleryoption');
 Route::get('/portrait/album/to/singleImage/{id}', 'PortraitController@portraitSingleImage')->name('portraitSingleImage');
-
+/*-------------------------------------------------------------------------*/
+Route::post('/portrait/package/name/create', 'PortraitController@portraitpackge')->name('portraitpackge');
 /*
 |--------------------------------------------------------------------------
 |                       Birthday Album Controller Start

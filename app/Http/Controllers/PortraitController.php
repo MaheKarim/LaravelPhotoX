@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Portrait;
 use App\LogoChange;
 use App\Portraitgallery;
+use App\PortraitPackage;
 
 class PortraitController extends Controller
 {
@@ -103,5 +104,17 @@ class PortraitController extends Controller
         $portraitgalleries = Portraitgallery::where('portrait_album_id', $id)->get();
 
         return view('portraitSingleGallery', compact('logochanges', 'portraits', 'portraitgalleries'));
+    }
+
+    public function portraitpackge(Request $request)
+    {
+        $portraitpackages = new PortraitPackage();
+        $portraitpackages->portrait_package_name = $request->portrait_package_name;
+        $portraitpackages->portrait_package_price = $request->portrait_package_price;
+
+        $portraitpackages->save();
+        dd($request->all());
+
+        return redirect()->route('portrait-section')->withportraitPackCreate('Package name Create Successfully!');
     }
 }
