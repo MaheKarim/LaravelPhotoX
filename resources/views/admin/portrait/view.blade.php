@@ -101,7 +101,7 @@
         </div>
 <br>        <hr>
         <div class="alert alert-primary text-center" role="alert">
-                This is your Portrait Package List Here!
+                This is your Portrait Package Here!
               </div>
 {{-- Alert End Here --}}
 
@@ -134,12 +134,50 @@
                   <div class="cold-md-4 form-group">
                         <a href="{{ route('portraitPackageToDescription') }}">
                         <input type="submit" class="btn btn-success" value="Add Package To To Description">
-                               </a>
+                        </a>
+                    </div>
                             </div>
-                            </div>
+                            <div class="alert alert-primary text-center" role="alert">
+                                    This is your Portrait Package List Here!
+                                  </div>
+                                  @if ( session('portraitpackagedelete') )
+                                  <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                  {{ session('portraitpackagedelete') }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  @endif
 
+                    <table class="table table-borderd">
+                        <thead>
+                          <tr>
+                              <th> package Name </th>
+                            <th>package price</th>
+                            <th>Action </th>
+                          </tr>
+                          @foreach ($portraitpackages as $portraitpackage)
+                          <tr>
+                                <td> {{ $portraitpackage->portrait_package_name }} </td>
+                            <td>  {{ $portraitpackage->portrait_package_price }} </td>
+
+                            <td>
+
+                                    <a href="{{ route('deleteportraitPackage', $portraitpackage->id) }}" onclick="event.preventDefault();
+                                            document.getElementById('destroy'+{{ $portraitpackage->id }}).submit();" class="btn btn-danger btn-xs">
+                                        <span> <i class="fas fa-trash"></i> </span>
+                                    </a>
+                                    <form id="destroy{{ $portraitpackage->id }}" action="{{ route('deleteportraitPackage', $portraitpackage->id) }}" method="post" style="display: none;">
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                        </thead>
+                    </table>
+                    {{-- PackagetableStartHere! --}}
 </div>
-
     </div>
 @endsection
 

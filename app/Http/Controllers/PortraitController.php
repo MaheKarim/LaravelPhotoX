@@ -8,16 +8,20 @@ use App\Portrait;
 use App\LogoChange;
 use App\Portraitgallery;
 use App\PortraitPackage;
+use App\PortraitPackageGallery;
 
 class PortraitController extends Controller
 {
     // home page for public view
     public function index()
     {
+        //dd('ok');
         $logochanges = LogoChange::all();
         $portraits = Portrait::all();
+        $portraitpackages = PortraitPackage::all();
+        //dd($portraitpackages);
 
-        return view('portraits_album', compact('logochanges', 'portraits'));
+        return view('portraits_album', compact('logochanges', 'portraits', 'portraitpackages'));
     }
 
     // Home Page For admin
@@ -26,8 +30,9 @@ class PortraitController extends Controller
         $logochanges = \App\LogoChange::all();
         $engagements = Engagement::all();
         $portraits = Portrait::all();
+        $portraitpackages = PortraitPackage::all();
 
-        return view('admin.portrait.view', compact('logochanges', 'engagements', 'portraits'));
+        return view('admin.portrait.view', compact('logochanges', 'engagements', 'portraits', 'portraitpackages'));
     }
 
     public function portraitalbummake(Request $request)
@@ -120,9 +125,28 @@ class PortraitController extends Controller
 
     public function portraitPackageToDescription()
     {
-        //dd('ok');
         $logochanges = LogoChange::all();
+        $portraitpackages = PortraitPackage::all();
 
-        return view('admin.portrait.addtopackage', compact('logochanges'));
+        return view('admin.portrait.addtopackage', compact('logochanges', 'portraitpackages'));
+    }
+
+    public function portraitDataToPackage(Request $request)
+    {
+        $portraitpackagegallries = new PortraitPackageGallery();
+        $portraitpackagegallries->portrait_package_id = $request->portrait_package_id;
+        $portraitpackagegallries->portrait_package_description = $request->portrait_package_description;
+
+        $portraitpackagegallries->save();
+
+        return redirect()->route('portraitPackageToDescription')->with('PackageDescriptionAdd', 'Package Description Create Successfully!');
+    }
+
+    public function deleteportraitPackage($id)
+    {
+        $portraitpackages = PortraitPackage::findOrfail($id)->delete();
+        //dd($id);
+
+        return redirect()->route('portraitsection')->withportraitpackagedelete('Package Delete Succesfully!');
     }
 }
