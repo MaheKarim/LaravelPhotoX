@@ -21,7 +21,7 @@
                                                 <form action="{{ route('engagementDataToPackage') }}" method="POST">
                                                     @csrf
                                                     <div class="form-group">
-                                                        <label for="">Upload Image To Album</label>
+                                                        <label for="">Select Package</label>
                                                         <select name="engagement_package_id" class="form-control">
                                                           <option disabled selected> Select an Album </option>
 
@@ -34,7 +34,7 @@
                                                     </div>
 
                                                     <div class="form-group">
-                                                         <label for="">Upload an image to albumn</label>
+                                                         <label for="">Add Description to Package</label>
                                                          <input type="text" name="engagement_package_description" placeholder="Your package description" class="form-control">
                                                         </div>
 

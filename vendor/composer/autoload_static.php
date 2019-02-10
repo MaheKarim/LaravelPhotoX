@@ -395,6 +395,8 @@ class ComposerStaticInit6af79ae29106b3b0c5b30eec438083e9
         'App\\SliderImage' => __DIR__ . '/../..' . '/app/SliderImage.php',
         'App\\Supplier' => __DIR__ . '/../..' . '/app/Supplier.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'App\\WeddingPackage' => __DIR__ . '/../..' . '/app/WeddingPackage.php',
+        'App\\WeddingPackageGallery' => __DIR__ . '/../..' . '/app/WeddingPackageGallery.php',
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
         'BeyondCode\\DumpServer\\DumpServerServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
         'BeyondCode\\DumpServer\\Dumper' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/Dumper.php',

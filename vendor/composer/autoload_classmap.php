@@ -61,6 +61,8 @@ return array(
     'App\\SliderImage' => $baseDir . '/app/SliderImage.php',
     'App\\Supplier' => $baseDir . '/app/Supplier.php',
     'App\\User' => $baseDir . '/app/User.php',
+    'App\\WeddingPackage' => $baseDir . '/app/WeddingPackage.php',
+    'App\\WeddingPackageGallery' => $baseDir . '/app/WeddingPackageGallery.php',
     'BeyondCode\\DumpServer\\DumpServerCommand' => $vendorDir . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
     'BeyondCode\\DumpServer\\DumpServerServiceProvider' => $vendorDir . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
     'BeyondCode\\DumpServer\\Dumper' => $vendorDir . '/beyondcode/laravel-dump-server/src/Dumper.php',

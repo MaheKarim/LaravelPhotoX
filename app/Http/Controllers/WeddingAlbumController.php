@@ -6,6 +6,8 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Album;
 use App\LogoChange;
 use App\Gallery;
+use App\WeddingPackage;
+use App\WeddingPackageGallery;
 
 class WeddingAlbumController extends Controller
 {
@@ -29,14 +31,6 @@ class WeddingAlbumController extends Controller
 
     public function makeAlbum(Request $request)
     {
-        //dd('ok!');
-//        $path = null;
-//        if ($request->has('thumbnail')) {
-//            // code...
-//            $path = $request->file('thumbnail')->store('weddingAlbum');
-//        } ;
-
-        //[bracket er vetor req  name theke je asbe]
         $requestData = $request->except(['thumbnail']);
         $image = $request->thumbnail;
 
@@ -111,5 +105,36 @@ class WeddingAlbumController extends Controller
         }
 
         return back()->with('deletenotification', 'Album delte Successfully!');
+    }
+
+    public function weddingpackge(Request $request)
+    {
+        $weddingpackages = new WeddingPackage();
+
+        $weddingpackages->wedding_package_name = $request->wedding_package_name;
+        $weddingpackages->wedding_package_price = $request->wedding_package_price;
+
+        $weddingpackages->save();
+
+        return redirect()->route('weedingalbumadmin')->withweddingpackagecreate('Package name Create Successfully!');
+    }
+
+    public function weddingpackgetodes()
+    {
+        $logochanges = LogoChange::all();
+        $weddingpackages = WeddingPackage::all();
+        $weddingpackagegallries = WeddingPackageGallery::all();
+
+        return view('admin.wedding.weddingpackgetodes', compact('logochanges', 'weddingpackages', 'weddingpackagegallries'));
+    }
+
+    public function WedingDataToPackage(Request $request)
+    {
+        $weddingpackagegallries = new WeddingPackageGallery();
+        $weddingpackagegallries->wedding_package_id = $request->wedding_package_id;
+        $weddingpackagegallries->wedding_package_description = $request->wedding_package_description;
+        $weddingpackagegallries->save();
+
+        return redirect()->route('weddingpackgetodes')->with('packagetodata', 'Package Description Add Successfully!');
     }
 }

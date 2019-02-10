@@ -51,7 +51,6 @@
             </div>
             @endif
 
-
             <br> <br>
             <hr>
             <table class="table table-borderd">
@@ -90,6 +89,41 @@
 
 
         </div>
+        <div class="alert alert-primary" role="alert">
+            This is your Wedding Package List Here!
+          </div>
+          {{-- Package Create Session Start Here --}}
+          @if ( session('weddingpackagecreate') )
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+          {{ session('weddingpackagecreate') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @endif
+          {{-- Package Create Session End Here --}}
+  {{-- Package Form Submit Start Here --}}
+          <form action="{{ route('weddingpackge') }}" method="POST">
+            @csrf
+            <div class="form-group">
+                 <label for="">Package Name</label>
+                 <input type="text" name="wedding_package_name" placeholder="Write down your package name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Package Price</label>
+                    <input type="text" name="wedding_package_price" class="form-control" placeholder="Wedding Package Price">
+                </div>
+                <div class="form-group">
+                  <input type="submit" class="btn btn-success" value="Make An Album">
+                  {{-- form submit --}}
+
+                </div>
+              </form> <br>
+              <div class="form-group">
+                    <a href="{{ route('weddingpackgetodes') }}">
+                    <input type="submit" class="btn btn-success" value="Add Image To Album">
+                           </a>
+              </div>
     </div>
 
 @endsection
