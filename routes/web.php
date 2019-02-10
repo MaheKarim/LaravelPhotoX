@@ -78,6 +78,8 @@ Route::post('portrait/album/to/gallery', 'PortraitController@portraitgalleryopti
 Route::get('/portrait/album/to/singleImage/{id}', 'PortraitController@portraitSingleImage')->name('portraitSingleImage');
 /*-------------------------------------------------------------------------*/
 Route::post('/portrait/package/name/create', 'PortraitController@portraitpackge')->name('portraitpackge');
+Route::get('/portrait/description/add-to/description', 'PortraitController@portraitPackageToDescription')->name('portraitPackageToDescription');
+
 /*
 |--------------------------------------------------------------------------
 |                       Birthday Album Controller Start

@@ -129,12 +129,14 @@
                       <input type="submit" class="btn btn-success" value="Make An Album">
                       {{-- form submit --}}
 
-                    </div>  <div class="cold-md-4 form-group">
-                            <a href="">
-                            <input type="submit" class="btn btn-success" value="Add Package To To Description">
-                                   </a>
-                      </div>
+                    </div>
                   </form>
+                  <div class="cold-md-4 form-group">
+                        <a href="{{ route('portraitPackageToDescription') }}">
+                        <input type="submit" class="btn btn-success" value="Add Package To To Description">
+                               </a>
+                            </div>
+                            </div>
 
 </div>
 
