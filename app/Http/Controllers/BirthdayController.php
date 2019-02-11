@@ -7,23 +7,29 @@ use App\LogoChange;
 use App\Birthday;
 use App\Birthdaygallery;
 use App\BirthdayPackage;
+use App\BirthdayPackageGallery;
 
 class BirthdayController extends Controller
 {
     public function index()
     {
-        $logochanges = \App\LogoChange::all();
+        // dd('ok');
+        $logochanges = LogoChange::all();
         $birthdays = Birthday::all();
+        $birthdaypackages = BirthdayPackage::all();
+        //$birthdaypackages = BirthdayPackage::find(1);
+        $birthdaypackagegalleries = BirthdayPackageGallery::all();
 
-        return view('birthday_album', compact('logochanges', 'birthdays'));
+        return view('birthday_album', compact('logochanges', 'birthdays', 'birthdaypackages', 'birthdaypackagegalleries'));
     }
 
     public function adminIndex()
     {
         $logochanges = LogoChange::all();
         $birthdays = Birthday::all();
+        $birthdaypackages = BirthdayPackage::all();
 
-        return view('admin.birthday.birthday_view', compact('logochanges', 'birthdays'));
+        return view('admin.birthday.birthday_view', compact('logochanges', 'birthdays', 'birthdaypackages'));
     }
 
     public function birthdayalbummake(Request $request)
@@ -102,12 +108,40 @@ class BirthdayController extends Controller
 
     public function birthdaypackage(Request $request)
     {
+        //dd($request->all());
         $birthdaypackages = new BirthdayPackage();
         $birthdaypackages->birthday_package_name = $request->birthday_package_name;
         $birthdaypackages->birthday_package_price = $request->birthday_package_price;
 
         $birthdaypackages->save();
+        //dd($request->all());
 
-        return redirect()->route('birthdayalbummake')->with('birthdaypackageaddnotification', 'Birthday Package Create Successfully!');
+        return redirect()->route('adminIndex')->with('birthdaypackageaddnotification', 'Birthday Package Create Successfully!');
+    }
+
+    public function birthdaydatasendpackage()
+    {
+        $logochanges = LogoChange::all();
+        $birthdaypackages = BirthdayPackage::all();
+
+        return view('admin.birthday.datasendpage', compact('logochanges', 'birthdaypackages'));
+    }
+
+    public function birthdayDataToPackage(Request $request)
+    {
+        $birthdaypackagegalleries = new BirthdayPackageGallery();
+        $birthdaypackagegalleries->birthday_package_id = $request->birthday_package_id;
+        $birthdaypackagegalleries->birthday_package_description = $request->birthday_package_description;
+
+        $birthdaypackagegalleries->save();
+
+        return redirect()->route('birthdaydatasendpackage')->with('birthdayPackageAdd', 'Package Create Successfully!');
+    }
+
+    public function deletebirthdayPackage($id)
+    {
+        $birthdaypackages = BirthdayPackage::findOrfail($id)->delete();
+
+        return redirect()->route('adminIndex')->withbirthdaypackagedelete('Package Delete Succesfully!');
     }
 }

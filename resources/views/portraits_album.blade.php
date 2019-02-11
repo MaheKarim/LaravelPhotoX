@@ -27,7 +27,7 @@
                                     @endforeach
                                 </ul>
 
-                                <span>$<h2>{{ $portraitpackage->portrait_package_price }} </h2>/Hour</span>
+                                <span>$<h2>{{ $portraitpackage->portrait_package_price }}</h2>/Hour</span>
                             </div>
                             <div class="package_bottom">
                                 <a href="#">Contact Me</a>

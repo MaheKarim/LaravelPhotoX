@@ -129,12 +129,58 @@
                             </div>
                           </form>
                           <div class="cold-md-4 form-group">
-                                <a href="">
+                                <a href="{{ route('birthdaydatasendpackage') }}">
                                 <input type="submit" class="btn btn-success" value="Add Package To To Description">
                                 </a>
                             </div>
 
-          </div>
+                       </div>
+
+                       <div class="alert alert-primary text-center" role="alert">
+                        This is your Birthday Package table Here!
+                      </div>
+       {{-- Table Start Here --}}
+
+       @if ( session('birthdaypackagedelete') )
+       <div class="alert alert-success alert-dismissible fade show" role="alert">
+       {{ session('birthdaypackagedelete') }}
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       @endif
+
+       {{-- Delete Session Code Start Here --}}
+
+       <table class="table table-borderd">
+        <thead>
+          <tr>
+              <th> package Name </th>
+            <th>package price</th>
+            <th>Action </th>
+          </tr>
+          @foreach ($birthdaypackages as $birthdaypackage)
+          <tr>
+                <td> {{ $birthdaypackage->birthday_package_name }} </td>
+            <td>  {{ $birthdaypackage->birthday_package_price }} </td>
+
+            <td>
+
+                    <a href="{{ route('deletebirthdayPackage', $birthdaypackage->id) }}" onclick="event.preventDefault();
+                            document.getElementById('destroy'+{{ $birthdaypackage->id }}).submit();" class="btn btn-danger btn-xs">
+                        <span> <i class="fas fa-trash"></i> </span>
+                    </a>
+                    <form id="destroy{{ $birthdaypackage->id }}" action="{{ route('deletebirthdayPackage', $birthdaypackage->id) }}" method="post" style="display: none;">
+                        @csrf
+                        @method('DELETE')
+                    </form>
+            </td>
+        </tr>
+        @endforeach
+        </thead>
+    </table>
+
+
 
 </div>
 @endsection
