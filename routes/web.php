@@ -109,6 +109,7 @@ Route::get('/party/album/image/send', 'PartyController@partyalbumtoImage')->name
 Route::post('/party/album/image', 'PartyController@partygalleryoption')->name('partygalleryoption');
 Route::get('/party/album/to/singleImage/{id}', 'PartyController@partyAlbumToImageAlbum')->name('partyAlbumToImageAlbum');
 Route::delete('/deleteParty/{id}', 'PartyController@deleteParty')->name('deleteParty');
+
 /*
 |--------------------------------------------------------------------------
 |                       Review Album Controller Start

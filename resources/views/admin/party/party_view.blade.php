@@ -17,29 +17,20 @@
         </ul>
     </div>
 @endif
-
-
-
-
                     <div class="card-body">
                         @if (session('PortraitAlbumUpload'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('PortraitAlbumUpload') }}
                             </div>
                         @endif
-
-
                     <div class="card-body">
                         @if (session('eAlbumUpload'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('eAlbumUpload') }}
                             </div>
                         @endif
-
-
-
                         <h2>Make a New Party Album</h2>
-<hr>
+                        <hr>
                         <form action="{{ route('partyalbummake') }}" enctype="multipart/form-data" method="POST">
                             @csrf
                             <div class="form-group">
@@ -52,9 +43,7 @@
                                 </div>
                                 <div class="form-group">
                                   <input type="submit" class="btn btn-success" value="Make An Album">
-
                                 </div>
-
                               </form>
                     <div class="form-group">
                     <a href="{{ route('partyalbumtoImage') }}">
@@ -64,7 +53,6 @@
                     </div>
                 </div>
             </div>
-
             <hr>
 
 {{-- Delete MSG Notifications - Session Start --}}
@@ -77,7 +65,7 @@
               </div>
               @endif
 
-<br> <br>
+               <br> <br>
             <hr>
             <table class="table table-borderd">
                 <thead>
@@ -86,15 +74,12 @@
                     <th>Image Thumbnail</th>
                     <th>Action </th>
                   </tr>
-
                  @foreach($parties as $party)
-
                   <tr>
                         <td> {{  $party->party_name }}</td>
                     <td>
                         <img class="mx-auto" src="{{ asset('partyfolder') }}/{{ $party->party_thumbnail }}" alt="Your Image Is here">
                     </td>
-
                     <td>
                             <a href="{{ route('deleteParty', $party->id) }}" onclick="event.preventDefault();
                                     document.getElementById('destroy'+{{ $party->id }}).submit();" class="btn btn-danger btn-xs">
@@ -104,14 +89,16 @@
                                 @csrf
                                 @method('DELETE')
                             </form>
-
-
                     </td>
                 </tr>
                @endforeach
                 </thead>
             </table>
         </div>
+        </div>
+        <div class="alert alert-primary" role="alert">
+            This is your Party Package Programme List Here!
+          </div>
     </div>
 @endsection
 
