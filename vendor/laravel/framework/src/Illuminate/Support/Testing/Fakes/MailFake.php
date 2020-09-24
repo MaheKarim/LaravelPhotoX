@@ -263,11 +263,11 @@ class MailFake implements Mailer, MailQueue
     }
 
     /**
-     * Send a new message when only a raw text part.
+     * Send a new message with only a raw text part.
      *
      * @param  string  $text
      * @param  \Closure|string  $callback
-     * @return int
+     * @return void
      */
     public function raw($text, $callback)
     {
@@ -315,7 +315,7 @@ class MailFake implements Mailer, MailQueue
      * Queue a new e-mail message for sending after (n) seconds.
      *
      * @param  \DateTimeInterface|\DateInterval|int  $delay
-     * @param  string|array|\Illuminate\Contracts\Mail\Mailable  $view
+     * @param  \Illuminate\Contracts\Mail\Mailable|string|array  $view
      * @param  string  $queue
      * @return mixed
      */
@@ -331,6 +331,6 @@ class MailFake implements Mailer, MailQueue
      */
     public function failures()
     {
-        //
+        return [];
     }
 }

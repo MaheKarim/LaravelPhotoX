@@ -2,6 +2,7 @@
 
 namespace Illuminate\Foundation\Testing\Concerns;
 
+use Illuminate\Support\Arr;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\Constraints\HasInDatabase;
 use PHPUnit\Framework\Constraint\LogicalNot as ReverseConstraint;
@@ -14,7 +15,7 @@ trait InteractsWithDatabase
      *
      * @param  string  $table
      * @param  array  $data
-     * @param  string  $connection
+     * @param  string|null  $connection
      * @return $this
      */
     protected function assertDatabaseHas($table, array $data, $connection = null)
@@ -31,7 +32,7 @@ trait InteractsWithDatabase
      *
      * @param  string  $table
      * @param  array  $data
-     * @param  string  $connection
+     * @param  string|null  $connection
      * @return $this
      */
     protected function assertDatabaseMissing($table, array $data, $connection = null)
@@ -48,9 +49,9 @@ trait InteractsWithDatabase
     /**
      * Assert the given record has been deleted.
      *
-     * @param  string|\Illuminate\Database\Eloquent\Model  $table
+     * @param  \Illuminate\Database\Eloquent\Model|string  $table
      * @param  array  $data
-     * @param  string  $connection
+     * @param  string|null  $connection
      * @return $this
      */
     protected function assertSoftDeleted($table, array $data = [], $connection = null)
@@ -84,12 +85,14 @@ trait InteractsWithDatabase
     /**
      * Seed a given database connection.
      *
-     * @param  string  $class
+     * @param  array|string  $class
      * @return $this
      */
     public function seed($class = 'DatabaseSeeder')
     {
-        $this->artisan('db:seed', ['--class' => $class, '--no-interaction' => true]);
+        foreach (Arr::wrap($class) as $class) {
+            $this->artisan('db:seed', ['--class' => $class, '--no-interaction' => true]);
+        }
 
         return $this;
     }

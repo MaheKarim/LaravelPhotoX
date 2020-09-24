@@ -73,6 +73,13 @@ abstract class AbstractPaginator implements Htmlable
     public $onEachSide = 3;
 
     /**
+     * The paginator options.
+     *
+     * @var array
+     */
+    protected $options;
+
+    /**
      * The current path resolver callback.
      *
      * @var \Closure
@@ -165,8 +172,8 @@ abstract class AbstractPaginator implements Htmlable
             $parameters = array_merge($this->query, $parameters);
         }
 
-        return $this->path
-                        .(Str::contains($this->path, '?') ? '&' : '?')
+        return $this->path()
+                        .(Str::contains($this->path(), '?') ? '&' : '?')
                         .Arr::query($parameters)
                         .$this->buildFragment();
     }
@@ -394,6 +401,16 @@ abstract class AbstractPaginator implements Htmlable
     }
 
     /**
+     * Get the base path for paginator generated URLs.
+     *
+     * @return string|null
+     */
+    public function path()
+    {
+        return $this->path;
+    }
+
+    /**
      * Resolve the current request path or return the default value.
      *
      * @param  string  $default
@@ -561,6 +578,16 @@ abstract class AbstractPaginator implements Htmlable
         $this->items = $collection;
 
         return $this;
+    }
+
+    /**
+     * Get the paginator options.
+     *
+     * @return array
+     */
+    public function getOptions()
+    {
+        return $this->options;
     }
 
     /**
