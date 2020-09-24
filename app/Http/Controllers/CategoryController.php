@@ -59,7 +59,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return redirect()->route('category.index')->withnotifications('Category Added Successfully!');
+        return redirect()->route('category.index')->withnotifications('About Added Successfully!');
     }
 
     /**

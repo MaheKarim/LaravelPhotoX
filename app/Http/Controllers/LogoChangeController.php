@@ -30,9 +30,9 @@ class LogoChangeController extends Controller
         return back();
     }
     public function show($id){
-        $logochanges = LogoChange::find($id);
+        $logochange = LogoChange::find($id);
         $logochanges = LogoChange::all();
-        return view('admin.logo.logochange', compact('logochanges','logochanges'));
+        return view('admin.logo.logochange', compact('logochanges' , 'logochange'));
     }
 
 

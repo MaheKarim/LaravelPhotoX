@@ -4,8 +4,10 @@
       <li class="nav-item nav-profile">
         <a href="#" class="nav-link">
           <div class="nav-profile-image">
-            <img src="{{ asset('/') }}admin/images/faces/face1.jpg" alt="profile">
-            <span class="login-status online"></span> <!--change to offline or busy as needed-->
+              @foreach($logochanges as $logochange)
+                  <img class="w-100" src="{{ asset('logo/'.$logochange->logo) }}" alt="">
+              @endforeach
+            <span class="login-status online"></span>
           </div>
           <div class="nav-profile-text d-flex flex-column">
             <span class="font-weight-bold mb-2">{{ Auth::user()->name }}</span>
@@ -96,38 +98,6 @@
           </ul>
         </div>
       </li>
-
-
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
-          <span class="menu-title">Sample Pages</span>
-          <i class="menu-arrow"></i>
-          <i class="mdi mdi-medical-bag menu-icon"></i>
-        </a>
-        <div class="collapse" id="general-pages">
-          <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
-          </ul>
-          </div>
-      </li>
-      {{--<li class="nav-item sidebar-actions">--}}
-        {{--<span class="nav-link">--}}
-          {{--<div class="border-bottom">--}}
-            {{--<h6 class="font-weight-normal mb-3">Projects</h6>--}}
-          {{--</div>--}}
-          {{--<button class="btn btn-block btn-lg btn-gradient-primary mt-4">+ Add a project</button>--}}
-          {{--<div class="mt-4">--}}
-            {{--<div class="border-bottom">--}}
-              {{--<p class="text-secondary">Categories</p>--}}
-            {{--</div>--}}
-
-          {{--</div>--}}
-        {{--</span>--}}
-      {{--</li>--}}
     </ul>
   </nav>
 @endauth
