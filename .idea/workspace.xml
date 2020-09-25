@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="040a542f-d6df-4fba-aac2-e7194d353695" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/LaraPharmaNew.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/LaraPharmaNew.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +105,17 @@
       <path value="$PROJECT_DIR$/vendor/jakub-onderka/php-console-color" />
       <path value="$PROJECT_DIR$/vendor/symfony/mime" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/vendor/league/mime-type-detection" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-iconv" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
     </include_path>
   </component>
   <component name="ProjectId" id="1hyOse0BJDVFQGCNDr254E6AB0j" />
@@ -124,7 +137,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RunManager">
     <configuration name="HomePageSectionController.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost/LaraPharmaNew/app/Http/Controllers/HomePageSectionController.php">
@@ -152,7 +165,8 @@
       <workItem from="1549301931249" duration="13011000" />
       <workItem from="1549345708427" duration="596000" />
       <workItem from="1549783525392" duration="650000" />
-      <workItem from="1600980077493" duration="2924000" />
+      <workItem from="1600980077493" duration="4131000" />
+      <workItem from="1601044660472" duration="668000" />
     </task>
     <servers />
   </component>
@@ -163,6 +177,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="-46" y="1" key="SettingsEditor" timestamp="1601047191987">
+      <screen x="0" y="0" width="1024" height="738" />
+    </state>
+    <state x="-46" y="1" key="SettingsEditor/0.0.1024.738@0.0.1024.738" timestamp="1601047191987" />
     <state x="175" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1600981630145">
       <screen x="0" y="0" width="1024" height="738" />
     </state>

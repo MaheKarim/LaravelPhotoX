@@ -8,6 +8,19 @@ use Illuminate\Support\Facades\Route;
 |---------------------------------
 */
 
+Route::get('/migrate', function () {
+    Artisan::call('migrate:reset');
+    Artisan::call('migrate');
+
+    return 'Migrate Reset OKaY!';
+});
+
+
+
+
+
+
+
 Route::get('/', function () {
     $logochanges = \App\LogoChange::all();
     $homepages = \App\HomePage::all();
